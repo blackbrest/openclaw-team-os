@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-04-10T13:25:27.813Z",
+  "items": [
+    {
+      "id": "design-bot",
+      "model": "shortapi/z-image/text-to-image",
+      "imageUrl": "https://file.shortapi.ai/tmp/20260410/69d8f98de2043cb306aaede1/d7cfj4bimipg00800cq0.png",
+      "outputPath": "/Users/wangliang/Documents/OpenClaw_Team_OS/apps/web/public/generated/recruit-avatars/design-bot.jpg"
+    },
+    {
+      "id": "game-dev-bot",
+      "model": "shortapi/z-image/text-to-image",
+      "imageUrl": "https://file.shortapi.ai/tmp/20260410/69d8f9a3e2043cb306aaede3/d7cfjb3imipg00800cqg.png",
+      "outputPath": "/Users/wangliang/Documents/OpenClaw_Team_OS/apps/web/public/generated/recruit-avatars/game-dev-bot.jpg"
+    },
+    {
+      "id": "art-bot",
+      "model": "shortapi/z-image/text-to-image",
+      "imageUrl": "https://file.shortapi.ai/tmp/20260410/69d8f9ca50acf5969728e807/d7cfjk3imipg00800cr0.png",
+      "outputPath": "/Users/wangliang/Documents/OpenClaw_Team_OS/apps/web/public/generated/recruit-avatars/art-bot.jpg"
+    },
+    {
+      "id": "ops-copy-bot",
+      "model": "shortapi/z-image/text-to-image",
+      "imageUrl": "https://file.shortapi.ai/tmp/20260410/69d8f9dee2043cb306aaede5/d7cfjobimipg00800crg.png",
+      "outputPath": "/Users/wangliang/Documents/OpenClaw_Team_OS/apps/web/public/generated/recruit-avatars/ops-copy-bot.jpg"
+    },
+    {
+      "id": "short-drama-writer-bot",
+      "model": "shortapi/z-image/text-to-image",
+      "imageUrl": "https://file.shortapi.ai/tmp/20260410/69d8f9f150acf5969728e808/d7cfju3imipg00800cs0.png",
+      "outputPath": "/Users/wangliang/Documents/OpenClaw_Team_OS/apps/web/public/generated/recruit-avatars/short-drama-writer-bot.jpg"
+    },
+    {
+      "id": "game-production-team",
+      "model": "shortapi/z-image/text-to-image",
+      "imageUrl": "https://file.shortapi.ai/tmp/20260410/69d8fa0750acf5969728e809/d7cfk3n8vk3g00800di0.png",
+      "outputPath": "/Users/wangliang/Documents/OpenClaw_Team_OS/apps/web/public/generated/recruit-avatars/game-production-team.jpg"
+    },
+    {
+      "id": "creative-studio-team",
+      "model": "shortapi/z-image/text-to-image",
+      "imageUrl": "https://file.shortapi.ai/tmp/20260410/69d8fa1be2043cb306aaede8/d7cfk8jimipg00800csg.png",
+      "outputPath": "/Users/wangliang/Documents/OpenClaw_Team_OS/apps/web/public/generated/recruit-avatars/creative-studio-team.jpg"
+    },
+    {
+      "id": "growth-content-team",
+      "model": "shortapi/z-image/text-to-image",
+      "imageUrl": "https://file.shortapi.ai/tmp/20260410/69d8fa2e50acf5969728e80b/d7cfkd3imipg00800ct0.png",
+      "outputPath": "/Users/wangliang/Documents/OpenClaw_Team_OS/apps/web/public/generated/recruit-avatars/growth-content-team.jpg"
+    },
+    {
+      "id": "short-drama-studio-team",
+      "model": "shortapi/z-image/text-to-image",
+      "imageUrl": "https://file.shortapi.ai/tmp/20260410/69d8fa4050acf5969728e80c/d7cfkh3imipg00800ctg.png",
+      "outputPath": "/Users/wangliang/Documents/OpenClaw_Team_OS/apps/web/public/generated/recruit-avatars/short-drama-studio-team.jpg"
+    }
+  ]
+}

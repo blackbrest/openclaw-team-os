@@ -1,0 +1,18 @@
+node_modules
+dist
+.DS_Store
+.env
+.env.local
+.turbo
+coverage
+.cache
+.npm-cache
+.npm-cache-codex
+.playwright-cli
+.vercel
+apps/web/.vercel
+output
+tmp
+auth-profiles.json
+OpenClaw Team OS Launcher.app
+output_*.png

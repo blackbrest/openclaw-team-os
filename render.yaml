@@ -1,0 +1,51 @@
+services:
+  - type: web
+    name: openclaw-team-os-api
+    runtime: node
+    rootDir: .
+    buildCommand: pnpm install --frozen-lockfile && pnpm build:api-deploy
+    startCommand: pnpm --filter @openclaw-team-os/api start
+    healthCheckPath: /health
+    plan: starter
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: openclaw-team-os-db
+          property: connectionString
+      - key: OPENCLAW_RUNTIME_MODE
+        value: mock
+      - key: OPENCLAW_GATEWAY_URL
+        sync: false
+      - key: OPENCLAW_GATEWAY_TOKEN
+        sync: false
+      - key: OPENCLAW_GATEWAY_SESSION_KEY
+        value: main
+      - key: OPENCLAW_LLM_TASK_PROVIDER
+        value: openai-codex
+      - key: OPENCLAW_LLM_TASK_MODEL
+        value: gpt-5.4
+      - key: OPENCLAW_LLM_TASK_THINKING
+        value: low
+      - key: OPENCLAW_LLM_TASK_MAX_TOKENS
+        value: "1200"
+      - key: SHORTAPI_KEY
+        sync: false
+      - key: SHORTAPI_BASE_URL
+        value: https://api.shortapi.ai
+      - key: SHORTAPI_VIDEO_MODEL
+        value: vidu/vidu-q3/text-to-video
+      - key: SHORTAPI_VIDEO_MODE
+        value: pro
+      - key: ARK_API_KEY
+        sync: false
+      - key: MODELARK_BASE_URL
+        value: https://ark.ap-southeast.bytepluses.com/api/v3
+      - key: MODELARK_VIDEO_MODEL
+        value: seedance-1-5-pro-251215
+      - key: MODELARK_VIDEO_RESOLUTION
+        value: 720p
+
+databases:
+  - name: openclaw-team-os-db
+    plan: starter

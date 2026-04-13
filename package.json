@@ -1,0 +1,36 @@
+{
+  "name": "openclaw-team-os",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.32.1",
+  "scripts": {
+    "launcher:mac": "node scripts/build-mac-launcher.mjs",
+    "start:local": "node scripts/start-local-client.mjs",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "db:migrate": "pnpm --filter @openclaw-team-os/api migrate",
+    "build:api-deploy": "pnpm --filter @openclaw-team-os/config build && pnpm --filter @openclaw-team-os/domain build && pnpm --filter @openclaw-team-os/runtime-adapter build && pnpm --filter @openclaw-team-os/api build",
+    "build:packages": "pnpm --filter @openclaw-team-os/config build && pnpm --filter @openclaw-team-os/domain build && pnpm --filter @openclaw-team-os/sdk build && pnpm --filter @openclaw-team-os/runtime-adapter build && pnpm --filter @openclaw-team-os/ui build",
+    "dev": "pnpm run build:packages && pnpm --parallel --filter @openclaw-team-os/api --filter @openclaw-team-os/web dev",
+    "dev:api": "pnpm --filter @openclaw-team-os/api dev",
+    "dev:web": "pnpm --filter @openclaw-team-os/web dev",
+    "dev:desktop": "pnpm run build:packages && OPENCLAW_TEAM_OS_WEB_URL=http://localhost:5173 pnpm --filter @openclaw-team-os/desktop dev",
+    "build": "pnpm -r build",
+    "e2e:smoke": "node scripts/e2e-smoke.mjs",
+    "e2e:desktop-smoke": "node scripts/e2e-desktop-smoke.mjs",
+    "e2e:packaged-desktop-smoke": "node scripts/e2e-packaged-desktop-smoke.mjs",
+    "e2e:short-drama-video": "node scripts/e2e-short-drama-video-generation.mjs",
+    "generate:recruit-avatars": "node scripts/generate-recruit-avatar-assets.mjs",
+    "generate:recruit-avatar-cutouts": "python3 scripts/prepare-recruit-avatar-cutouts.py",
+    "package:desktop": "pnpm --filter @openclaw-team-os/desktop package",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.15",
+    "playwright": "^1.59.1",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}

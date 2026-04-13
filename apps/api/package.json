@@ -1,0 +1,28 @@
+{
+  "name": "@openclaw-team-os/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "migrate": "tsx src/run-migrations.ts",
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "echo 'No lint configured for @openclaw-team-os/api'",
+    "test": "echo 'No tests yet for @openclaw-team-os/api'"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.0.1",
+    "@openclaw-team-os/config": "workspace:*",
+    "@openclaw-team-os/domain": "workspace:*",
+    "@openclaw-team-os/runtime-adapter": "workspace:*",
+    "dotenv": "^17.2.3",
+    "fastify": "^5.3.3",
+    "pg": "^8.16.3",
+    "ulid": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.15.6"
+  }
+}

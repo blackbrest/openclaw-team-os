@@ -1,0 +1,66 @@
+{
+  "name": "@openclaw-team-os/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Desktop shell for the OpenClaw Team OS beta client.",
+  "author": "OpenClaw Team OS",
+  "type": "module",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "pnpm run build && electron .",
+    "generate:icon": "python3 ./scripts/generate_icon_assets.py",
+    "package": "node ./scripts/package.mjs",
+    "start": "electron .",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "echo 'No lint configured for @openclaw-team-os/desktop'",
+    "test": "echo 'No tests yet for @openclaw-team-os/desktop'"
+  },
+  "build": {
+    "appId": "ai.openclaw.team-os",
+    "productName": "OpenClaw Team OS",
+    "asar": true,
+    "afterSign": "./scripts/notarize.mjs",
+    "icon": "build/icon.png",
+    "npmRebuild": false,
+    "directories": {
+      "output": "../../output/releases/desktop"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "artifactName": "${productName}-${version}-${arch}.${ext}",
+      "category": "public.app-category.business",
+      "gatekeeperAssess": false,
+      "hardenedRuntime": true,
+      "icon": "build/icon.icns",
+      "target": [
+        "zip"
+      ]
+    },
+    "linux": {
+      "artifactName": "${productName}-${version}-${arch}.${ext}",
+      "icon": "build/icon.png",
+      "target": [
+        "AppImage"
+      ]
+    },
+    "win": {
+      "artifactName": "${productName}-${version}-${arch}.${ext}",
+      "icon": "build/icon.ico",
+      "target": [
+        "portable"
+      ]
+    }
+  },
+  "devDependencies": {
+    "@electron/notarize": "^3.1.1",
+    "electron": "^37.2.1",
+    "electron-builder": "^26.8.1"
+  },
+  "dependencies": {
+    "@openclaw-team-os/config": "workspace:*"
+  }
+}
