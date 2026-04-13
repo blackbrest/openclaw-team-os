@@ -8,6 +8,7 @@ coverage
 .cache
 .npm-cache
 .npm-cache-codex
+.render-tools
 .playwright-cli
 .vercel
 apps/web/.vercel

@@ -1,10 +1,37 @@
 services:
+  - type: pserv
+    name: openclaw-team-os-gateway
+    runtime: node
+    rootDir: .
+    buildCommand: ./scripts/render-gateway-build.sh
+    startCommand: ./scripts/render-gateway-start.sh
+    healthCheckPath: /health
+    plan: starter
+    autoDeploy: true
+    disk:
+      name: openclaw-gateway-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: OPENCLAW_GATEWAY_PORT
+        value: "10000"
+      - key: OPENCLAW_STATE_DIR
+        value: /var/data/.openclaw
+      - key: OPENCLAW_WORKSPACE_DIR
+        value: /var/data/workspace
+      - key: OPENCLAW_GATEWAY_TOKEN
+        generateValue: true
+      - key: OPENAI_API_KEY
+        sync: false
+
   - type: web
     name: openclaw-team-os-api
     runtime: node
     rootDir: .
     buildCommand: pnpm install --frozen-lockfile && pnpm build:api-deploy
-    startCommand: pnpm --filter @openclaw-team-os/api start
+    startCommand: ./scripts/render-api-start.sh
     healthCheckPath: /health
     plan: starter
     autoDeploy: true
@@ -16,13 +43,21 @@ services:
       - key: OPENCLAW_RUNTIME_MODE
         value: mock
       - key: OPENCLAW_GATEWAY_URL
-        sync: false
+        value: ""
+      - key: OPENCLAW_GATEWAY_HOSTPORT
+        fromService:
+          name: openclaw-team-os-gateway
+          type: pserv
+          property: hostport
       - key: OPENCLAW_GATEWAY_TOKEN
-        sync: false
+        fromService:
+          name: openclaw-team-os-gateway
+          type: pserv
+          envVarKey: OPENCLAW_GATEWAY_TOKEN
       - key: OPENCLAW_GATEWAY_SESSION_KEY
         value: main
       - key: OPENCLAW_LLM_TASK_PROVIDER
-        value: openai-codex
+        value: openai
       - key: OPENCLAW_LLM_TASK_MODEL
         value: gpt-5.4
       - key: OPENCLAW_LLM_TASK_THINKING
