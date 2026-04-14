@@ -5,7 +5,6 @@ services:
     rootDir: .
     buildCommand: ./scripts/render-gateway-build.sh
     startCommand: ./scripts/render-gateway-start.sh
-    healthCheckPath: /health
     plan: starter
     autoDeploy: true
     disk:
